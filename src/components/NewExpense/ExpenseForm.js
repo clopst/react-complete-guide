@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-export const ExpenseForm = () => {
+export const ExpenseForm = (props) => {
+  const { onSubmit } = props;
+
   // const [title, setTitle] = useState('');
   // const [amount, setAmount] = useState('');
   // const [date, setDate] = useState('');
@@ -51,11 +53,13 @@ export const ExpenseForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const expenseItem = {
+    const expenseData = {
       ...values,
       date: new Date(values.date),
     };
-    console.log(expenseItem);
+
+    // call on submit props
+    onSubmit(expenseData);
 
     // clear state
     setValues({

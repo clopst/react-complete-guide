@@ -20,9 +20,13 @@ export const App = () => {
     },
   ];
 
+  const handleNewExpense = (expense) => {
+    console.log('App.js', expense);
+  };
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onNewExpense={handleNewExpense} />
       <Expenses items={expenses} />
     </div>
   );
