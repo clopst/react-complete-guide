@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Card } from "../UI/Card";
-import { ExpenseDate } from "./ExpenseDate";
-import "./ExpenseItem.css";
+import { useState } from 'react';
+import { Card } from '../UI/Card';
+import { ExpenseDate } from './ExpenseDate';
+import './ExpenseItem.css';
 
 export const ExpenseItem = (props) => {
   const { title, amount, date } = props;
@@ -9,8 +9,8 @@ export const ExpenseItem = (props) => {
   const [expenseTitle, setExpenseTitle] = useState(title);
 
   const handleClick = () => {
-    setExpenseTitle("New title");
-    console.log("CLICK!!!");
+    setExpenseTitle('New title');
+    console.log('CLICK!!!');
   };
 
   return (
