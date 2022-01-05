@@ -48,18 +48,40 @@ export const ExpenseForm = () => {
     }));
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const expenseItem = {
+      ...values,
+      date: new Date(values.date),
+    };
+    console.log(expenseItem);
+
+    // clear state
+    setValues({
+      title: '',
+      amount: '',
+      date: '',
+    });
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={handleTitleChange} />
+          <input
+            type="text"
+            value={values.title}
+            onChange={handleTitleChange}
+          />
         </div>
 
         <div className="new-expense__control">
           <label>Amount</label>
           <input
             type="number"
+            value={values.amount}
             min={0.01}
             step={0.01}
             onChange={handleAmountChange}
@@ -70,9 +92,10 @@ export const ExpenseForm = () => {
           <label>Date</label>
           <input
             type="date"
+            value={values.date}
             min="2019-01-01"
             max="2022-12-31"
-            onClick={handleDateChange}
+            onChange={handleDateChange}
           />
         </div>
       </div>
