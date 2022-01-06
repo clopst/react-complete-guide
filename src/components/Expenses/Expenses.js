@@ -1,8 +1,8 @@
-import './Expenses.css';
-import { ExpenseItem } from './ExpenseItem';
+import { useState } from 'react';
 import { Card } from '../UI/Card';
 import { ExpensesFilter } from './ExpensesFilter';
-import { useState } from 'react';
+import { ExpensesList } from './ExpensesList';
+import './Expenses.css';
 
 export const Expenses = (props) => {
   const { items } = props;
@@ -20,14 +20,7 @@ export const Expenses = (props) => {
   return (
     <Card className="expenses">
       <ExpensesFilter value={filterYear} onChange={handleFilterChange} />
-      {filteredExpenses.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      ))}
+      <ExpensesList items={filteredExpenses} />
     </Card>
   );
 };
