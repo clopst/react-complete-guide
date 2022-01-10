@@ -23,7 +23,7 @@ export const ExpenseItem = (props) => {
           <h2>{expenseTitle}</h2>
           <div className="expense-item__price">${amount}</div>
         </div>
-        <button onClick={handleClick}>Change Title</button>
+        {/* <button onClick={handleClick}>Change Title</button> */}
       </Card>
     </li>
   );
