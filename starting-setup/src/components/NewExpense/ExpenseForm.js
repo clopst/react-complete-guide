@@ -55,6 +55,7 @@ export const ExpenseForm = (props) => {
 
     const expenseData = {
       ...values,
+      amout: +values.amount,
       date: new Date(values.date),
     };
 
